@@ -1,8 +1,8 @@
 {
-  "name": "",
+  "name": "Grand Prix",
   "version": "1.0.0",
-  "description": "",
-  "repository": "",
+  "description": "A running community focused web application",
+  "repository": "https://github.com/garyditsch/grand_prix",
   "engines": {
     "node": "6.8.1"
   },

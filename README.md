@@ -1,7 +1,7 @@
 # DJANGO SEED
 
-Starting point for Django, Django Rest Framework, Angular, Webpack and Gulp projects.
+This web application will be provide a results database, along with some additional community support features for the local running community in Lexington, Kentucky. 
 
-See the using-django-seed.md in the docs for usage.
+View Project walk through [here](https://youtu.be/aXVOWq6LwJs)
 
-**Replace the contents of this doc with a README for your project**
+View Project Agile board on Trello [here](https://trello.com/b/Ji9HkFXa)
