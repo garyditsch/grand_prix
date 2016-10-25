@@ -6,8 +6,8 @@ from race.models import Race
 
 class Result(models.Model):
     race = models.ForeignKey(Race)
-    firstname = models.CharField(max_length=50)
-    lastname = models.CharField(max_length=50)
+    firstname = models.CharField(max_length=50, blank=True)
+    lastname = models.CharField(max_length=50, blank=True)
     age = models.IntegerField(blank=True, null=True)
     bib = models.IntegerField()
     time = models.TimeField()

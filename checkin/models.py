@@ -9,7 +9,7 @@ class Checkin(models.Model):
     race = models.ForeignKey(Race)
     checkin_bib = models.IntegerField()
     score = models.IntegerField(blank=True, null=True)
-    email = models.ForeignKey(User, blank=True, null=True)
+    email = models.CharField(max_length=50, blank=True, null=True)
     checkin_date = models.DateTimeField(default=datetime.now)
 
     def __str__(self):
