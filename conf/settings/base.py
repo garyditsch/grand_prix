@@ -30,7 +30,8 @@ INSTALLED_APPS = (
     'rest_framework',
     'core',
     'checkin', 
-    'race'
+    'race', 
+    'results'
 )
 
 MIDDLEWARE_CLASSES = (
