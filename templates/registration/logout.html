@@ -1,0 +1,14 @@
+{% extends "core/base.html" %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col s12 m4 offset-m4">
+        <div class="card-panel">
+            <span class="teal-text">
+                <p class='text-align-center lead'>You have successfully logged out.</p><p class='text-align-center lead'><a href="{% url 'auth_login' %}">Login</a></p></p>
+            </span>
+        </div>
+    </div>
+</div>
+{% endblock %}

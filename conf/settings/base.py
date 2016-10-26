@@ -17,6 +17,8 @@ SECRET_KEY = os.environ['SECRET_KEY']
 # SECURITY WARNING: don't run with debug turned on in production!
 ALLOWED_HOSTS = []
 
+REGISTRATION_OPEN = True
+LOGIN_REDIRECT_URL = '/'
 
 # Application definition
 
@@ -31,7 +33,8 @@ INSTALLED_APPS = (
     'core',
     'checkin', 
     'race', 
-    'results'
+    'results',
+    'accounts'
 )
 
 MIDDLEWARE_CLASSES = (
