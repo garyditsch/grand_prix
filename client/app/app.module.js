@@ -18,7 +18,7 @@ const AppModule = angular.module('app', [
                 url: '/',
                 component: 'pageMain',
                 resolve: {
-                    race(raceAPIService) {
+                    races(raceAPIService) {
                         return raceAPIService.getRaces();
                     },
                 },

@@ -53,7 +53,7 @@
 
 <!-- Start Cards -->
 <race-list 
-    ng-repeat="race in pageCtrl.race" 
+    ng-repeat="race in pageCtrl.races | orderBy : '-date'" 
     race="race" 
 >
 </race-list>
