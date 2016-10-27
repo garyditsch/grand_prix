@@ -4,6 +4,9 @@ import PageController from './page.controllers';
 
 const pageComponent = {
     template,
+    bindings: {
+        race: '<',
+    },
     controller: PageController,
     controllerAs: 'pageCtrl',
 };

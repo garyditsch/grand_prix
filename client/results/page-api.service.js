@@ -1,10 +1,14 @@
 function raceAPIService($resource) {
-    const api = {
-        race_list: $resource('/api/race/:id/',
-            { id: '@id' },
-            ),
+    const raceResource = $resource('/api/race/:id/',
+            { id: '@id' });
+    return {
+        getRaces() {
+            return raceResource.get().$promise.then((data) => {
+                return data.results;
+            });
+        },
     };
-    return api;
 }
 
 export default raceAPIService;
+

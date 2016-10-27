@@ -5,9 +5,24 @@ import appComponent from './app.component';
 import PageModule from '../results/page.module';
 
 const AppModule = angular.module('app', [
+    uiRouter,
     PageModule.name,
     angularMaterialize,
 ])
-    .component('app', appComponent);
+    .component('app', appComponent)
+    .config(($stateProvider, $urlRouterProvider) => {
+        $urlRouterProvider.otherwise('/');
+
+        $stateProvider
+            .state('index', {
+                url: '/',
+                component: 'pageMain',
+                resolve: {
+                    race(raceAPIService) {
+                        return raceAPIService.getRaces();
+                    },
+                },
+            });
+    });
 
 export default AppModule;
