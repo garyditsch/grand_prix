@@ -7,6 +7,11 @@ function raceAPIService($resource) {
                 return data.results;
             });
         },
+        getRaceDetails(id) {
+            return raceResource.get({ id }).$promise.then((data) => {
+                return data;
+            });
+        },
     };
 }
 

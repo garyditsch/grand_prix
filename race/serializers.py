@@ -5,5 +5,5 @@ class RaceSerializer(serializers.ModelSerializer):
 
     class Meta: 
         model = Race
-        fields = ('name', 'date', 'distance', 'website', 'race_director')
+        fields = ('id', 'name', 'date', 'distance', 'website', 'race_director')
 

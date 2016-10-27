@@ -22,6 +22,16 @@ const AppModule = angular.module('app', [
                         return raceAPIService.getRaces();
                     },
                 },
+            })
+            .state('race', {
+                url: '/race/{id}',
+                component: 'raceResult',
+                resolve: {
+                    races(raceAPIService, $transition$) {
+                        return raceAPIService
+                            .getRaceDetails($transition$.params().id);
+                    },
+                },
             });
     });
 
