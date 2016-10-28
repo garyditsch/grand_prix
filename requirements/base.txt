@@ -2,6 +2,7 @@ Django==1.8.14
 Unipath==1.1
 djangorestframework==3.4.7
 django-registration-redux
+django-csvimport==2.4
 
 dj-database-url==0.4.1
 gunicorn==19.6.0

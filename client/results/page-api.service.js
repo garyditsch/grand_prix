@@ -16,4 +16,3 @@ function raceAPIService($resource) {
 }
 
 export default raceAPIService;
-

@@ -1,1 +1,47 @@
-This is working!!
+<div class="row">
+    <div class="col s12 m8 offset-m2">
+
+<!-- Results page container -->
+
+<!-- Race page race details and search -->
+      <div class="row">
+        <div class="col s6">
+          <div class="card-panel teal">
+            <span class="white-text">
+              <h5> {{raceResultsCtrl.races.name}}</h5>
+              Date: {{raceResultsCtrl.races.date | date:MM/dd/yyy}}  |  Distance: {{raceResultsCtrl.races.distance}} miles
+            </span>
+          </div>
+        </div>
+        <div class="col s6">
+            <div class="card-panel white">
+                <h6>Search for results..</h6>
+                <input ng-model="raceResultsCtrl.runner_search"></input>
+            </div>
+        </div>
+      </div>
+<!-- End race page race details -->
+
+<!-- Results Table -->
+          <table class="highlight bordered">
+              <thead>
+                <tr>
+                    <th>Runner</th>
+                    <th>Time</th>
+                    <th>Bib</th>
+                    <th>Claimed</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="runner in raceResultsCtrl.results | orderBy : 'time' | filter : raceResultsCtrl.runner_search">
+                  <td> {{runner.firstname}} {{runner.lastname}}</td>
+                  <td> {{runner.time}}</td>
+                  <td> {{runner.bib}}</td>
+                  <td> <i class="material-icons">check_box_outline_blank</i></td>
+                </tr>
+              </tbody>
+          </table>
+<!-- End Results Table -->
+
+    </div>
+</div>

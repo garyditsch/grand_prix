@@ -5,7 +5,8 @@ import RaceResultsController from './race_results.controllers';
 const raceResultsComponent = {
     template,
     bindings: {
-        race: '<',
+        races: '<',
+        results: '<',
     },
     controller: RaceResultsController,
     controllerAs: 'raceResultsCtrl',

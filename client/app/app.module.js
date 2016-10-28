@@ -31,6 +31,10 @@ const AppModule = angular.module('app', [
                         return raceAPIService
                             .getRaceDetails($transition$.params().id);
                     },
+                    results(resultsAPIService, $transition$) {
+                        return resultsAPIService
+                            .getResults($transition$.params().id);
+                    },
                 },
             });
     });

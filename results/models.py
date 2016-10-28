@@ -15,4 +15,4 @@ class Result(models.Model):
     user = models.ForeignKey(User, blank=True, null=True)
     
     def __str__(self):
-        return self.bib
+        return self.lastname

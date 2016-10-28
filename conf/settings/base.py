@@ -34,7 +34,7 @@ INSTALLED_APPS = (
     'checkin', 
     'race', 
     'results',
-    'accounts'
+    'accounts',
 )
 
 MIDDLEWARE_CLASSES = (
