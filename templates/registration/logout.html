@@ -1,4 +1,21 @@
 {% extends "core/base.html" %}
+{% load staticfiles %}
+
+
+{% block nav_content %}
+
+<nav class="light-blue accent-4" role="navigation">
+    <div class="nav-wrapper container">
+      <a id="logo-container" href="/" class="brand-logo"><img src="{% static 'images/ckgp-headerlogo-small.png' %}"></a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="http://localhost:8000/accounts/register/">Sign Up</a></li>
+        <li><a href="http://localhost:8000/accounts/login/">Log In</a></li>
+      </ul>
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="fa fa-bars" aria-hidden="true">menu</i></a>
+    </div>
+</nav>
+
+{% endblock nav_content %}
 
 {% block content %}
 
