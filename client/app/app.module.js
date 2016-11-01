@@ -1,7 +1,7 @@
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
 import angularMaterialize from 'angular-materialize';
-// import Chart from 'chart.js';
+import chart from 'angular-chart.js';
 import appComponent from './app.component';
 import PageModule from '../results/page.module';
 
@@ -9,7 +9,7 @@ const AppModule = angular.module('app', [
     uiRouter,
     PageModule.name,
     angularMaterialize,
-    // chart.js,
+    chart,
 ])
     .component('app', appComponent)
     .config(($stateProvider, $urlRouterProvider) => {
