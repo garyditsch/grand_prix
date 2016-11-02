@@ -1,0 +1,45 @@
+<page-header></page-header>
+
+<!-- Race page race details and search -->
+    <div class="row">
+        <div class="col s8 offset-s2">
+            <div class="card-panel white">
+                <h6>Search for results..</h6>
+                <input ng-model="raceResultsCtrl.runner_search"></input>
+            </div>
+        </div>
+    </div>
+<!-- End race page race details -->
+
+    <div class = "row">
+      <div class = "col s8 offset-s2">
+        <table class="highlight">
+          <tr>
+            <td>Race</td>
+            <td>Bib</td>
+            <td>Name</td>
+            <td>Score</td>
+            <td>CheckIn Date</td>
+          </tr>
+          <tr ng-repeat="runner in checkinCtrl.checkins | filter : raceResultsCtrl.runner_search">
+            <td>{{runner.race}}</td>
+            <td>{{runner.checkin_bib}}</td>
+            <td>{{runner.firstname}} {{runner.lastname}}</td>
+            <td>{{runner.score}}</td>
+            <td>{{runner.checkin_date | date:MM/dd/yyy}}</td>
+          </tr>
+        </table>
+        
+      </div>
+    </div>
+  
+
+  <div class = "col s12 light-blue accent-4">
+    <div class = "container">
+        <div class = "row">
+          <div class = "col s12">
+            <p class="light">We did most of the heavy lifting for you to provide a default stylings that incorporate our custom components. Additionally, we refined animations and transitions to provide a smoother experience for developers.</p>
+          </div>
+        </div>
+    </div>
+  </div>

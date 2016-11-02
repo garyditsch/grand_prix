@@ -4,10 +4,12 @@ import angularMaterialize from 'angular-materialize';
 import chart from 'angular-chart.js';
 import appComponent from './app.component';
 import PageModule from '../results/page.module';
+import CheckinModule from '../checkin/checkin.module';
 
 const AppModule = angular.module('app', [
     uiRouter,
     PageModule.name,
+    CheckinModule.name,
     angularMaterialize,
     chart,
 ])
@@ -38,7 +40,16 @@ const AppModule = angular.module('app', [
                             .getResults($transition$.params().id);
                     },
                 },
-            });
+            })
+              .state('checkin', {
+                  url: '/checkin/',
+                  component: 'checkin',
+                  resolve: {
+                      checkins(checkinsAPIService) {
+                          return checkinsAPIService.getCheckins();
+                      },
+                  },
+              });
     });
 
 export default AppModule;

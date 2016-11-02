@@ -10,6 +10,8 @@ class Checkin(models.Model):
     checkin_bib = models.IntegerField()
     score = models.IntegerField(blank=True, null=True)
     email = models.CharField(max_length=50, blank=True, null=True)
+    firstname = models.CharField(max_length=50, blank=True, null=True)
+    lastname = models.CharField(max_length=50, blank=True, null=True)
     checkin_date = models.DateTimeField(default=datetime.now)
 
     def __str__(self):
