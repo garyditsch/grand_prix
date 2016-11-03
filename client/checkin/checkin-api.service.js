@@ -1,9 +1,9 @@
 function checkinsAPIService($resource) {
-    const resultsResource = $resource('/api/checkins/',
+    const checkinsResource = $resource('/api/checkins/:id/',
             { id: '@id' });
     return {
         getCheckins() {
-            return resultsResource.get({}).$promise.then((data) => {
+            return checkinsResource.get({}).$promise.then((data) => {
                 return data.results;
             });
         },

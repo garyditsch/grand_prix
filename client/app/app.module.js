@@ -1,5 +1,6 @@
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
+import angularCookies from 'angular-cookies';
 import angularMaterialize from 'angular-materialize';
 import chart from 'angular-chart.js';
 import appComponent from './app.component';
@@ -8,6 +9,7 @@ import CheckinModule from '../checkin/checkin.module';
 
 const AppModule = angular.module('app', [
     uiRouter,
+    angularCookies,
     PageModule.name,
     CheckinModule.name,
     angularMaterialize,
@@ -50,6 +52,12 @@ const AppModule = angular.module('app', [
                       },
                   },
               });
+    })
+    .run(($http, $cookies) => {
+        // Add a header for CSRF token, so that POST does not fail to our API
+
+        // eslint-disable-next-line no-param-reassign
+        $http.defaults.headers.common['X-CSRFToken'] = $cookies.get('csrftoken');
     });
 
 export default AppModule;
