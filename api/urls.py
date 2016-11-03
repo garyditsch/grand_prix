@@ -4,6 +4,7 @@ from rest_framework import routers
 from race.viewsets import RaceViewSet
 from results.viewsets import ResultsViewSet
 from checkin.viewsets import CheckinViewSet
+from accounts.views import CurrentUserDetails
 
 router = routers.DefaultRouter()
 router.register(r'race', RaceViewSet)
@@ -11,5 +12,6 @@ router.register(r'results', ResultsViewSet)
 router.register(r'checkins', CheckinViewSet)
 
 urlpatterns = [
+    url(r'^me/$', CurrentUserDetails.as_view(), name="me"),
     url(r'^', include(router.urls)),
 ]
