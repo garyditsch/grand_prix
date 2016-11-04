@@ -50,7 +50,10 @@
                   <td> {{runner.firstname}} {{runner.lastname}}</td>
                   <td> {{runner.time}}</td>
                   <td> {{runner.bib}}</td>
-                  <td> <i class="material-icons">check_box_outline_blank</i></td>
+                  <td> 
+                    <i class="material-icons" ng-click="raceResultsCtrl.claimRaceResult(runner)">check_box_outline_blank</i>
+                    <i class="material-icons" ng-click="raceResultsCtrl.unclaimRaceResult(runner)">check_box</i>
+                  </td>
                 </tr>
               </tbody>
           </table>

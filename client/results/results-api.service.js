@@ -1,5 +1,5 @@
 function resultsAPIService($resource) {
-    const resultsResource = $resource('/api/results/:id/',
+    const resultsResource = $resource('/api/results/',
             { id: '@id' });
     return {
         getResults(race) {

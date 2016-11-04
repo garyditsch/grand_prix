@@ -6,6 +6,7 @@ const pageComponent = {
     template,
     bindings: {
         races: '<',
+        me: '<',
     },
     controller: PageController,
     controllerAs: 'pageCtrl',

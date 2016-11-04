@@ -3,6 +3,9 @@ import AppController from './app.controller';
 
 const appComponent = {
     template,
+    bindings: {
+        races: '<',
+    },
     controller: AppController,
     controllerAs: 'appCtrl',
 };

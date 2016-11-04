@@ -1,5 +1,9 @@
+function AppController(raceAPIService) {
+    const ctrl = this;
 
-function AppController() {
+    raceAPIService.getMe().then((me) => {
+        ctrl.username = me.username;
+    });
 }
 
 export default AppController;

@@ -7,6 +7,7 @@ const raceResultsComponent = {
     bindings: {
         races: '<',
         results: '<',
+        me: '<',
     },
     controller: RaceResultsController,
     controllerAs: 'raceResultsCtrl',

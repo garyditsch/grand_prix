@@ -27,6 +27,9 @@ const AppModule = angular.module('app', [
                     races(raceAPIService) {
                         return raceAPIService.getRaces();
                     },
+                    me(raceAPIService) {
+                        return raceAPIService.getMe();
+                    },
                 },
             })
             .state('race', {
@@ -40,6 +43,9 @@ const AppModule = angular.module('app', [
                     results(resultsAPIService, $transition$) {
                         return resultsAPIService
                             .getResults($transition$.params().id);
+                    },
+                    me(raceAPIService) {
+                        return raceAPIService.getMe();
                     },
                 },
             })

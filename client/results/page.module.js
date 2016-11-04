@@ -8,6 +8,7 @@ import pageHeaderComponent from './page_header.components';
 import pageFooterComponent from './page_footer.components';
 import raceAPIService from './page-api.service';
 import resultsAPIService from './results-api.service';
+import resultsEditService from './results-edit.service';
 
 const PageModule = angular.module('results', ['ngResource'])
     .config(($resourceProvider) => {
@@ -15,6 +16,7 @@ const PageModule = angular.module('results', ['ngResource'])
     })
     .factory('raceAPIService', raceAPIService)
     .factory('resultsAPIService', resultsAPIService)
+    .factory('resultsEditService', resultsEditService)
     .component('pageMain', pageComponent)
     .component('raceList', raceListComponent)
     .component('raceResult', raceResultsComponent)
