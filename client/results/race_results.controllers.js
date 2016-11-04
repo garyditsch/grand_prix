@@ -1,5 +1,6 @@
 function RaceResultsController(resultsEditService) {
     const ctrl = this;
+    ctrl.viewChart = false;
 
     // The race results data formatting and graphing
     ctrl.data = [];
@@ -30,30 +31,30 @@ function RaceResultsController(resultsEditService) {
 
     // ctrl.series = ['Series A', 'Series B'];
 
+    // This function allows user to show / hide results chart
+    ctrl.showChart = function showChart() {
+        ctrl.viewChart = !ctrl.viewChart;
+    };
+
     // This function allows user to set race to claimed
     ctrl.claimRaceResult = function claimRaceResult(runner) {
-        runner.claim = !runner.claim;
+        runner.claim = true;
         runner.user = ctrl.me.id;
         resultsEditService.resultsEdit.update(runner).$promise.then((data) => {
+            console.log(data);
             runner = data;
         });
     };
 
-    // // This function allows user to set a race to unclaimed
-    // ctrl.unclaimRaceResult = function(result) {
-    //     const index = ctrl.results.indexOf(result);
-    //     ctrl.results[index].claim = false;
-    // };
-
-    // ctrl.updateGrocery = function updateGrocery(groceryToUpdate) {
-    //     groceryAPIService.groceries.update(groceryToUpdate).$promise.then(() => {
-    //     flashesService.displayMessage('Grocery Updated', 'success');
-    //     });
-    // };
-
-    // ctrl.checkGrocery = function checkGrocery() {
-    //    ctrl.grocery.checked = !ctrl.grocery.checked;
-    //    ctrl.update({ groceryToUpdate: ctrl.grocery });
+    // This function allows user to set a race to unclaimed
+    ctrl.unclaimRaceResult = function unclaimRaceResult(runner) {
+        runner.claim = false;
+        runner.user = null;
+        resultsEditService.resultsEdit.update(runner).$promise.then((data) => {
+            console.log(data);
+            runner = data;
+        });
+    };
 }
 
 export default RaceResultsController;

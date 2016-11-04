@@ -7,7 +7,7 @@
 
 <!-- Race page race details and search -->
       <div class="row">
-        <div class="col s12">
+        <div class="col m8">
           <div class="card-panel teal">
             <span class="white-text">
               <h5> {{raceResultsCtrl.races.name}}</h5>
@@ -15,10 +15,14 @@
             </span>
           </div>
         </div>
+        <div class="col m4">
+            <h5>View Results Chart</h5>
+            <a class="btn-floating btn-large waves-effect waves-light teal" ng-click="raceResultsCtrl.showChart()"><i class="material-icons">add</i></a>
+        </div>
       </div>
 <!-- End race page race details -->
 
-    <div class="row">
+    <div class="row" ng-show="raceResultsCtrl.viewChart">
       <div class="col s12">
         <canvas id="resultsBarChart" class="chart chart-line" chart-data="raceResultsCtrl.data" chart-labels="raceResultsCtrl.labels" chart-series="raceResultsCtrl.series" chart-options="raceResultsCtrl.options">
         </canvas>
@@ -42,17 +46,20 @@
                     <th>Runner</th>
                     <th>Time</th>
                     <th>Bib</th>
+                    <th>Claim It!</th>
                     <th>Claimed</th>
                 </tr>
               </thead>
               <tbody>
-                <tr ng-repeat="runner in raceResultsCtrl.results | orderBy : 'time' | filter : raceResultsCtrl.runner_search">
+                <tr ng-repeat="runner in raceResultsCtrl.results | orderBy : 'time' | filter : raceResultsCtrl.runner_search" ng-class="{ success: runner.claim}">
                   <td> {{runner.firstname}} {{runner.lastname}}</td>
                   <td> {{runner.time}}</td>
                   <td> {{runner.bib}}</td>
                   <td> 
-                    <i class="material-icons" ng-click="raceResultsCtrl.claimRaceResult(runner)">check_box_outline_blank</i>
-                    <i class="material-icons" ng-click="raceResultsCtrl.unclaimRaceResult(runner)">check_box</i>
+                    <i class="material-icons" ng-click="raceResultsCtrl.claimRaceResult(runner)" ng-show="!runner.claim">check_box_outline_blank</i>
+                  </td>
+                  <td>
+                    <i class="material-icons" ng-click="raceResultsCtrl.unclaimRaceResult(runner)" ng-show="runner.claim">check_box</i>
                   </td>
                 </tr>
               </tbody>
