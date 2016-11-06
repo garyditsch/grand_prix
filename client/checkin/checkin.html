@@ -2,7 +2,7 @@
 
 <div class="container">
     <div class="row">
-        <div class="col s6">
+        <div class="col s4">
             <div class="card">
                 <div class="card-content">
                     <form ng-submit="checkinCtrl.saveCheckin(checkinCtrl.editedCheckin)">
@@ -20,43 +20,30 @@
             </div> <!-- End Card -->
         </div> <!-- End Col 1 -->
 
-        <div class="col s6"> <!-- Start Col 2 -->
+        <div class="col s8"> <!-- Start Col 2 -->
             <div class="card-panel white">
                 <h6>Search for results..</h6>
                 <input ng-model="raceResultsCtrl.runner_search"></input>
+                <table class="highlight">
+                  <tr>
+                    <td>Race</td>
+                    <td>Bib</td>
+                    <td>Name</td>
+                    <td>Score</td>
+                    <td>CheckIn Date</td>
+                  </tr>
+                  <tr ng-repeat="runner in checkinCtrl.checkins | filter : raceResultsCtrl.runner_search">
+                    <td>{{runner.race}}</td>
+                    <td>{{runner.checkin_bib}}</td>
+                    <td>{{runner.firstname}} {{runner.lastname}}</td>
+                    <td>{{runner.score}}</td>
+                    <td>{{runner.checkin_date | date:MM/dd/yyy}}</td>
+                  </tr>
+                </table>
             </div>
         </div> <!-- End Col 2 -->
     </div> <!-- End Row 1 -->
 </div> <!-- End Container -->
 
-  <div class = "col s12 light-blue accent-4">
-    <div class = "container">
-        <div class = "row">
-          <div class = "col s12">
-            <p class="light">We did most of the heavy lifting for you to provide a default stylings that incorporate our custom components. Additionally, we refined animations and transitions to provide a smoother experience for developers.</p>
-          </div>
-        </div>
-    </div>
-  </div>
+ <page-footer></page-footer>
 
-<div class="container">
-    <div class="row"> <!-- Start Row 3 -->
-        <table class="highlight">
-          <tr>
-            <td>Race</td>
-            <td>Bib</td>
-            <td>Name</td>
-            <td>Score</td>
-            <td>CheckIn Date</td>
-          </tr>
-          <tr ng-repeat="runner in checkinCtrl.checkins | filter : raceResultsCtrl.runner_search">
-            <td>{{runner.race}}</td>
-            <td>{{runner.checkin_bib}}</td>
-            <td>{{runner.firstname}} {{runner.lastname}}</td>
-            <td>{{runner.score}}</td>
-            <td>{{runner.checkin_date | date:MM/dd/yyy}}</td>
-          </tr>
-        </table>
-    </div> <!-- End Row 3 -->
-</div> <!-- End Container -->
-  

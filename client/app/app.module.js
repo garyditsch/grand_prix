@@ -56,6 +56,9 @@ const AppModule = angular.module('app', [
                       checkins(checkinsAPIService) {
                           return checkinsAPIService.getCheckins();
                       },
+                      races(raceAPIService) {
+                          return raceAPIService.getRaces();
+                      },
                   },
               });
     })

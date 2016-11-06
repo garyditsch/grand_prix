@@ -6,6 +6,7 @@ const checkinComponent = {
     template,
     bindings: {
         checkins: '<',
+        races: '<',
     },
     controller: CheckinController,
     controllerAs: 'checkinCtrl',
