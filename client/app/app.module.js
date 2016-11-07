@@ -6,12 +6,14 @@ import chart from 'angular-chart.js';
 import appComponent from './app.component';
 import PageModule from '../results/page.module';
 import CheckinModule from '../checkin/checkin.module';
+import DashboardModule from '../dashboard/dashboard.module';
 
 const AppModule = angular.module('app', [
     uiRouter,
     angularCookies,
     PageModule.name,
     CheckinModule.name,
+    DashboardModule.name,
     angularMaterialize,
     chart,
 ])
@@ -43,6 +45,23 @@ const AppModule = angular.module('app', [
                     results(resultsAPIService, $transition$) {
                         return resultsAPIService
                             .getResults($transition$.params().id);
+                    },
+                    me(raceAPIService) {
+                        return raceAPIService.getMe();
+                    },
+                },
+            })
+            .state('dashboard', {
+                url: '/dashboard/{id}',
+                component: 'dashboard',
+                resolve: {
+                    races(raceAPIService, $transition$) {
+                        return raceAPIService
+                            .getRaceDetails($transition$.params().id);
+                    },
+                    results(resultsAPIService, $transition$) {
+                        return resultsAPIService
+                            .getIndividualResults($transition$.params().id);
                     },
                     me(raceAPIService) {
                         return raceAPIService.getMe();

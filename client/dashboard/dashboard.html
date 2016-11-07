@@ -1,0 +1,59 @@
+<page-header></page-header>
+
+<div class="row">
+    <div class="col s12 m8 offset-m2">
+
+<!-- Results page container -->
+
+<!-- Race page race details and search -->
+      <div class="row">
+        <div class="col m12">
+          <div class="card-panel teal">
+            <span class="white-text">
+              <h5> Welcome {{ dashboardCtrl.me.username }}!
+            </span>
+          </div>
+        </div>
+      </div>
+<!-- End race page race details -->
+
+
+   <!--  <div class="row">
+        <div class="col s12">
+            <div class="card-panel white">
+                <h6>Search for results..</h6>
+                <input ng-model="raceResultsCtrl.runner_search"></input>
+            </div>
+        </div>
+    </div> -->
+
+<!-- Results Table -->
+          <table class="highlight bordered">
+              <thead>
+                <tr>
+                    <th>Runner</th>
+                    <th>Time</th>
+                    <th>Bib</th>
+                    <th>Claim It!</th>
+                    <th>Claimed</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="runner in raceResultsCtrl.results | orderBy : 'time' | filter : raceResultsCtrl.runner_search" ng-class="{ success: runner.claim}">
+                  <td> {{runner.firstname}} {{runner.lastname}}</td>
+                  <td> {{runner.time}}</td>
+                  <td> {{runner.bib}}</td>
+                  <td> 
+                    <i class="material-icons" ng-click="raceResultsCtrl.claimRaceResult(runner)" ng-show="!runner.claim">check_box_outline_blank</i>
+                  </td>
+                  <td>
+                    <i class="material-icons" ng-click="raceResultsCtrl.unclaimRaceResult(runner)" ng-show="runner.claim">check_box</i>
+                  </td>
+                </tr>
+              </tbody>
+          </table>
+<!-- End Results Table -->
+
+    </div>
+</div>
+<page-footer></page-footer>

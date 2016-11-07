@@ -7,6 +7,11 @@ function resultsAPIService($resource) {
                 return data.results;
             });
         },
+        getIndividualResults(user) {
+            return resultsResource.get({ user }).$promise.then((data) => {
+                return data.results;
+            });
+        },
     };
 }
 
