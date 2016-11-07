@@ -52,16 +52,16 @@ const AppModule = angular.module('app', [
                 },
             })
             .state('dashboard', {
-                url: '/dashboard/{id}',
+                url: '/dashboard/',
                 component: 'dashboard',
                 resolve: {
                     races(raceAPIService, $transition$) {
                         return raceAPIService
                             .getRaceDetails($transition$.params().id);
                     },
-                    results(resultsAPIService, $transition$) {
+                    results(resultsAPIService) {
                         return resultsAPIService
-                            .getIndividualResults($transition$.params().id);
+                            .getUserResults();
                     },
                     me(raceAPIService) {
                         return raceAPIService.getMe();

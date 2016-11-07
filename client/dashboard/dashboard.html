@@ -39,7 +39,7 @@
                 </tr>
               </thead>
               <tbody>
-                <tr ng-repeat="runner in raceResultsCtrl.results | orderBy : 'time' | filter : raceResultsCtrl.runner_search" ng-class="{ success: runner.claim}">
+                <tr ng-repeat="runner in dashboardCtrl.results | orderBy : 'time' | filter : raceResultsCtrl.runner_search" ng-class="{ success: runner.claim}">
                   <td> {{runner.firstname}} {{runner.lastname}}</td>
                   <td> {{runner.time}}</td>
                   <td> {{runner.bib}}</td>
