@@ -34,6 +34,18 @@ const AppModule = angular.module('app', [
                     },
                 },
             })
+            .state('race-menu', {
+                url: '/race-menu/',
+                component: 'raceMenu',
+                resolve: {
+                    races(raceAPIService) {
+                        return raceAPIService.getRaces();
+                    },
+                    me(raceAPIService) {
+                        return raceAPIService.getMe();
+                    },
+                },
+            })
             .state('race', {
                 url: '/race/{id}',
                 component: 'raceResult',

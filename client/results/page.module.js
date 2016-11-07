@@ -4,6 +4,7 @@ import 'angular-resource';
 import pageComponent from './page.components';
 import raceListComponent from './race_list.components';
 import raceResultsComponent from './race_results.components';
+import raceMenuComponent from './race_menu.components';
 import pageHeaderComponent from './page_header.components';
 import pageFooterComponent from './page_footer.components';
 import raceAPIService from './page-api.service';
@@ -20,6 +21,7 @@ const PageModule = angular.module('results', ['ngResource'])
     .component('pageMain', pageComponent)
     .component('raceList', raceListComponent)
     .component('raceResult', raceResultsComponent)
+    .component('raceMenu', raceMenuComponent)
     .component('pageHeader', pageHeaderComponent)
     .component('pageFooter', pageFooterComponent);
 

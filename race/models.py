@@ -10,6 +10,8 @@ class Race(models.Model):
     distance = models.DecimalField(max_digits=7, decimal_places=2)
     website = models.CharField(max_length=75, blank=True)
     race_director = models.CharField(max_length=50, blank=True)
+    date_added = models.DateField()
+    results_in_database = models.BooleanField(default=False)
 
 
     def __str__(self):

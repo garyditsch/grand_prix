@@ -1,5 +1,5 @@
 <page-header></page-header>
-<div id="index-banner" class="parallax-container">
+<!-- <div id="index-banner" class="parallax-container">
     <div class="section no-pad-bot">
       <div class="container">
         <br><br>
@@ -24,9 +24,9 @@
         </div>
       </div>
   </div>
-</div>
+</div> -->
 
-  <div class = "container">
+  <!-- <div class = "container">
       <div class = "row">
         <div class = "col s12 m6">
           <p>
@@ -49,22 +49,35 @@
           </div>
         </div>
     </div>
-  </div>
+  </div> -->
 
        
   <div class="container">
 <!-- Start Cards -->
 
-    <div class = "row">
-      <div class = "col s12">
-        <h5>Recent races added to database ... </h5>
-      </div>
+    <div class="row">
+        <div class="col s12">
+          <div class="card-panel teal">
+            <span class="white-text">
+              <div class="right-align">All races in the database... </div>
+            </span>
+          </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col s12">
+            <div class="card-panel white">
+                Search for a specific race...
+                <input ng-model="raceMenuCtrl.race_search"></input>
+            </div>
+        </div>
     </div>
 
     <div class="row center">
       <div class = "col s12">
         <race-list 
-            ng-repeat="race in pageCtrl.races | orderBy : '-date' | filter:{results_in_database: true} | limitTo : 3" 
+            ng-repeat="race in raceMenuCtrl.races | orderBy : '-date' | filter:{results_in_database: true} | filter : raceMenuCtrl.race_search" 
             race="race" 
         >
         </race-list>
