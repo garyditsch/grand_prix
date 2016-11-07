@@ -39,15 +39,15 @@
                 </tr>
               </thead>
               <tbody>
-                <tr ng-repeat="runner in dashboardCtrl.results | orderBy : 'time' | filter : raceResultsCtrl.runner_search" ng-class="{ success: runner.claim}">
+                <tr ng-repeat="runner in dashboardCtrl.userResults | orderBy : 'time' | filter : raceResultsCtrl.runner_search" ng-class="{ success: runner.claim}">
                   <td> {{runner.firstname}} {{runner.lastname}}</td>
                   <td> {{runner.time}}</td>
                   <td> {{runner.bib}}</td>
                   <td> 
-                    <i class="material-icons" ng-click="raceResultsCtrl.claimRaceResult(runner)" ng-show="!runner.claim">check_box_outline_blank</i>
+                    <i class="material-icons" ng-click="dashboardCtrl.claimRaceResult(runner)" ng-show="!runner.claim">check_box_outline_blank</i>
                   </td>
                   <td>
-                    <i class="material-icons" ng-click="raceResultsCtrl.unclaimRaceResult(runner)" ng-show="runner.claim">check_box</i>
+                    <i class="material-icons" ng-click="dashboardCtrl.unclaimRaceResult(runner)" ng-show="runner.claim">check_box</i>
                   </td>
                 </tr>
               </tbody>

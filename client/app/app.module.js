@@ -59,8 +59,8 @@ const AppModule = angular.module('app', [
                         return raceAPIService
                             .getRaceDetails($transition$.params().id);
                     },
-                    results(resultsAPIService) {
-                        return resultsAPIService
+                    userResults(userResultsAPIService) {
+                        return userResultsAPIService
                             .getUserResults();
                     },
                     me(raceAPIService) {

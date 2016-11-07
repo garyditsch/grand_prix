@@ -7,6 +7,7 @@ const DashboardComponent = {
     bindings: {
         races: '<',
         results: '<',
+        userResults: '<',
         me: '<',
     },
     controller: DashboardController,
