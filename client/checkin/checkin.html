@@ -1,13 +1,23 @@
-<page-header></page-header>
-
 <div class="container">
+    <div class="row">
+        <div class="col s12">
+            <div class="card-panel teal">
+                <div class="white-text right-align"><h5>Check In your bib number to be scored...</h5></div>
+            </div>
+        </div>
+    </div>
     <div class="row">
         <div class="col s4">
             <div class="card">
                 <div class="card-content">
                     <form ng-submit="checkinCtrl.saveCheckin(checkinCtrl.editedCheckin)">
                         Race:
-                        <input ng-model="checkinCtrl.editedCheckin.race"></input><br>
+                        <select ng-model="checkinCtrl.editedCheckin.race" material-select>
+                            <option ng-repeat="race in checkinCtrl.races" value="{{race.id}}">{{race.name}}</option>
+                        <!-- <option ng-repeat="race in checkinCtrl.array" value="{{race}}">{{race}}</option> -->
+                        </select>
+                        <!-- Race 2:
+                        <input ng-model="checkinCtrl.editedCheckin.race"></input><br> -->
                         Bib #:
                         <input ng-model="checkinCtrl.editedCheckin.checkin_bib"></input><br>
                         First Name:
@@ -22,8 +32,8 @@
 
         <div class="col s8"> <!-- Start Col 2 -->
             <div class="card-panel white">
-                <h6>Search for results..</h6>
-                <input ng-model="raceResultsCtrl.runner_search"></input>
+                <h6>Search for runners who have checked in..</h6>
+                <input ng-model="checkinCtrl.runner_search"></input>
                 <table class="highlight">
                   <tr>
                     <td>Race</td>
@@ -32,7 +42,7 @@
                     <td>Score</td>
                     <td>CheckIn Date</td>
                   </tr>
-                  <tr ng-repeat="runner in checkinCtrl.checkins | filter : raceResultsCtrl.runner_search">
+                  <tr ng-repeat="runner in checkinCtrl.checkins | filter : checkinCtrl.runner_search">
                     <td>{{runner.race}}</td>
                     <td>{{runner.checkin_bib}}</td>
                     <td>{{runner.firstname}} {{runner.lastname}}</td>
@@ -44,6 +54,3 @@
         </div> <!-- End Col 2 -->
     </div> <!-- End Row 1 -->
 </div> <!-- End Container -->
-
- <page-footer></page-footer>
-

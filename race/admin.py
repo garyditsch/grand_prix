@@ -6,7 +6,7 @@ from .models import Race
 
 
 class RaceAdmin(admin.ModelAdmin):
-    list_display = ('id', 'name', 'date', 'distance', 'website',  'race_director', 'results_in_database', 'date_added')
+    list_display = ('id', 'name', 'date', 'distance', 'website',  'race_director', 'grand_prix_race', 'results_in_database', 'date_added')
 
 
 admin.site.register(Race, RaceAdmin)

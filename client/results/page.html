@@ -1,4 +1,3 @@
-<page-header></page-header>
 <div id="index-banner" class="parallax-container">
     <div class="section no-pad-bot">
       <div class="container">
@@ -18,34 +17,78 @@
   <div class = "container">
       <div class = "row">
         <div class = "col s12">
-          <p>
-          Welcome {{ pageCtrl.me.username }}
-          </p>
+          <div class="section-headline">
+          <h5 ng-show="pageCtrl.me.first_name != null">{{ pageCtrl.me.first_name }}, let's run ... let's race!</h5>
+          </div>
         </div>
       </div>
   </div>
 </div>
 
+<div class = "container">
+  <div class = "row">
+    <div class = "col s12 m6">
+      <p>
+      <h5>Find and Track Your Race Results</h5>
+      <img src="/static/images/people-jogger-jogging-colors.jpg" width="425px" height="275px">
+    </div>
+    <div class = "col s12 m6">
+      <p>
+      <h5>Participate in the Grand Prix</h5>
+      <img src="/static/images/jogger-jogging-sport-marathon.jpg" width="425px" height="275px">
+    </div>
+  </div>
+</div>
+
+<div class = "col s12 light-blue accent-4">
   <div class = "container">
       <div class = "row">
-        <div class = "col s12 m6">
-          <p>
-          <h5>Race Results</h5>
-          <img src="/static/images/people-jogger-jogging-colors.jpg" width="425px" height="275px">
-        </div>
-        <div class = "col s12 m6">
-          <p>
-          <h5>Grand Prix Check In</h5>
-          <img src="/static/images/jogger-jogging-sport-marathon.jpg" width="425px" height="275px">
+        <div class = "col s12">
+          <div class="section-headline">
+          <h5>Grand Prix Series Races:</h5>
+          </div>
         </div>
       </div>
   </div>
+</div>
+
+<!-- Results Table -->
+<div class="container">
+  <div class = "row">
+    <div class = "col s12">
+        <table class="highlight bordered">
+            <thead>
+              <tr>
+                  <th>Race</th>
+                  <th>Date</th>
+                  <th>Distance</th>
+                  <th>Results</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="race in pageCtrl.races | orderBy : '-date' | filter:{grand_prix_race: true} | limitTo : 7">
+                <td> {{race.name}}</td>
+                <td> {{race.date | date:MM/dd/yyy}}</td>
+                <td> {{race.distance}} miles</td>
+                <td> <i class="material-icons" ng-show='race.results_in_database'>verified_user</i></td>
+              </tr>
+            </tbody>
+        </table>
+        
+        <div class="card-panel white">
+            <i class="material-icons">verified_user</i> : Grand Prix Races that provided results and have been added to the results database.<p>
+        </div>
+        
+    </div>
+  </div>
+</div>
+<!-- End Results Table -->
 
   <div class = "col s12 light-blue accent-4">
     <div class = "container">
         <div class = "row">
           <div class = "col s12">
-            <p class="light">We did most of the heavy lifting for you to provide a default stylings that incorporate our custom components. Additionally, we refined animations and transitions to provide a smoother experience for developers.</p>
+            <div class="section-headline"><h5>Most recent race results added to database: </h5></div>
           </div>
         </div>
     </div>
@@ -54,12 +97,6 @@
        
   <div class="container">
 <!-- Start Cards -->
-
-    <div class = "row">
-      <div class = "col s12">
-        <h5>Recent races added to database ... </h5>
-      </div>
-    </div>
 
     <div class="row center">
       <div class = "col s12">
@@ -72,6 +109,4 @@
     </div>
 <!-- End Cards -->
 
-
   </div>
-<page-footer></page-footer>

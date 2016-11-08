@@ -6,6 +6,7 @@
  * Made By MaterializeCSS.com
  */
 
+
 nav ul a,
 nav .brand-logo {
   color: #444;
@@ -16,7 +17,7 @@ p {
 }
 
 .button-collapse {
-  color: #26a69a;
+  color: #000000;
 }
 
 .parallax-container {
@@ -56,6 +57,21 @@ footer.page-footer {
   margin: 0;
 }
 
+footer a {
+  color: #ffffff;
+  font-family: "Roboto", sans-serif;
+}
+
 .success {
   background-color: #eeeeee;
+}
+
+.section-headline {
+  color: white;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.card .card-action a:not(.btn):not(.btn-large):not(.btn-floating) {
+  color: teal;
 }

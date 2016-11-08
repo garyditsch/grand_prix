@@ -8,8 +8,14 @@
     <div class="nav-wrapper container">
       <a id="logo-container" href="/" class="brand-logo"><img src="{% static 'images/ckgp-headerlogo-small.png' %}"></a>
       <ul class="right hide-on-med-and-down">
-        <li><a href="http://localhost:8000/accounts/register/">Sign Up</a></li>
-        <li><a href="http://localhost:8000/accounts/login/">Log In</a></li>
+        <li><a href="/">Home</a></li>
+        {% if request.user.is_authenticated %}
+          <li><a href="{% url 'auth_logout' %}">Log Out</a></li>
+        {% else %}
+          <li><a href="{% url 'registration_register' %}">Sign Up</a></li>
+          <li><a href="{% url 'auth_login' %}">Log In</a></li>
+        {% endif %}
+
       </ul>
       <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="fa fa-bars" aria-hidden="true">menu</i></a>
     </div>

@@ -12,6 +12,7 @@ class Race(models.Model):
     race_director = models.CharField(max_length=50, blank=True)
     date_added = models.DateField()
     results_in_database = models.BooleanField(default=False)
+    grand_prix_race = models.BooleanField(default=False)
 
 
     def __str__(self):

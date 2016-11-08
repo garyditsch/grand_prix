@@ -1,6 +1,8 @@
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 
+from django.core.urlresolvers import reverse_lazy
+
 from unipath import Path
 
 BASE_DIR = Path(__file__).ancestor(3)
@@ -19,6 +21,9 @@ ALLOWED_HOSTS = []
 
 REGISTRATION_OPEN = True
 LOGIN_REDIRECT_URL = '/'
+
+LOGIN_URL = reverse_lazy('templates:login')
+LOGOUT_URL = reverse_lazy('templates:logout')
 
 # Application definition
 

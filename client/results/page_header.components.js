@@ -5,6 +5,7 @@ import PageHeaderController from './page_header.controllers';
 const pageHeaderComponent = {
     template,
     bindings: {
+        me: '<',
     },
     controller: PageHeaderController,
     controllerAs: 'pageHeaderCtrl',
