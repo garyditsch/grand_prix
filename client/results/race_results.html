@@ -23,9 +23,12 @@
     <div class="row" ng-show="raceResultsCtrl.viewChart">
       <div class="col s12">
       <div class="card-panel white">
-      <img src="/static/images/raceresults-lbx.png" width="700" height="400">
-        <!-- <canvas id="resultsBarChart" class="chart chart-line" chart-data="raceResultsCtrl.data" chart-labels="raceResultsCtrl.labels" chart-series="raceResultsCtrl.series" chart-options="raceResultsCtrl.options">
+      <!-- <img src="/static/images/raceresults-lbx.png" width="700" height="400"> -->
+        <!-- <canvas id="resultsBarChart" class="chart chart-bar" chart-data="raceResultsCtrl.data" chart-labels="raceResultsCtrl.labels" chart-series="raceResultsCtrl.series" chart-options="raceResultsCtrl.options">
         </canvas> -->
+      <div google-chart chart="myChartObject" style="height:200px; width:100%;"></div>
+
+
         </div>
       </div>
     </div>

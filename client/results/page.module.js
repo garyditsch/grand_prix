@@ -1,5 +1,7 @@
 import angular from 'angular';
 import 'angular-resource';
+import 'angular-moment';
+import 'angular-google-chart';
 
 import pageComponent from './page.components';
 import raceListComponent from './race_list.components';
@@ -11,7 +13,11 @@ import raceAPIService from './page-api.service';
 import resultsAPIService from './results-api.service';
 import resultsEditService from './results-edit.service';
 
-const PageModule = angular.module('results', ['ngResource'])
+const PageModule = angular.module('results', [
+    'ngResource',
+    'angularMoment',
+    'googlechart',
+])
     .config(($resourceProvider) => {
         $resourceProvider.defaults.stripTrailingSlashes = false;
     })

@@ -14,7 +14,13 @@ class UserResultsSerializer(serializers.ModelSerializer):
         fields = ('id', 'race', 'firstname', 'lastname', 'age', 'bib', 'time', 'claim', 'user')
 
 
-# class ResultsAnalysisSerializer(serializers.Serializer):
+class ResultsAnalysisSerializer(serializers.ModelSerializer):
+    count = serializers.IntegerField()
+    average = serializers.IntegerField()
+    min = serializers.IntegerField()
+    max = serializers.IntegerField()
 
-#     class Meta: 
-#         model = Result
+
+    class Meta:
+        model = Result
+        fields = ('race', 'count', 'average', 'min', 'max')

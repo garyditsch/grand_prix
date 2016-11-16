@@ -1,8 +1,10 @@
 import angular from 'angular';
+// import googlechart from 'angular-google-chart';
 import uiRouter from 'angular-ui-router';
 import angularCookies from 'angular-cookies';
 import angularMaterialize from 'angular-materialize';
 import chart from 'angular-chart.js';
+import angularMoment from 'angular-moment';
 import appComponent from './app.component';
 import PageModule from '../results/page.module';
 import CheckinModule from '../checkin/checkin.module';
@@ -16,6 +18,8 @@ const AppModule = angular.module('app', [
     DashboardModule.name,
     angularMaterialize,
     chart,
+    angularMoment,
+    // googlechart,
 ])
     .component('app', appComponent)
     .config(($stateProvider, $urlRouterProvider) => {

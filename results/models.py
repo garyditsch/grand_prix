@@ -9,8 +9,9 @@ class Result(models.Model):
     firstname = models.CharField(max_length=50, blank=True)
     lastname = models.CharField(max_length=50, blank=True)
     age = models.IntegerField(blank=True, null=True)
+    gender = models.CharField(max_length=2, blank=True)
+    time = models.IntegerField()
     bib = models.IntegerField()
-    time = models.DurationField()
     claim = models.BooleanField(default=False)
     user = models.ForeignKey(User, blank=True, null=True)
     

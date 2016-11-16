@@ -1,33 +1,59 @@
-function RaceResultsController(resultsEditService) {
+function RaceResultsController(resultsEditService, moment) {
     const ctrl = this;
     ctrl.viewChart = false;
 
-    // The race results data formatting and graphing
-    ctrl.data = [];
-    for (let i = 0; i < ctrl.results.length; i++) {
-        const newTime = ctrl.results[i].time;
-        ctrl.data.push(newTime);
-    }
+    // google chart example
 
-    ctrl.labels = [];
-    for (let i = 0; i < ctrl.results.length; i++) {
-        ctrl.labels.push(ctrl.results[i].id);
-    }
+    ctrl.myChartObject = {};
 
-    ctrl.datasetOverride = [{ yAxisID: 'y-axis-1' }];
+    ctrl.myChartObject.type = 'ColumnChart';
 
-    ctrl.options = {
-        scales: {
-            yAxes: [
-                {
-                    id: 'y-axis-1',
-                    type: 'linear',
-                    display: true,
-                    position: 'left',
-                },
-            ],
-        },
+    ctrl.myChartObject.data = { cols: [
+        { id: 't', label: 'Topping', type: 'string' },
+        { id: 's', label: 'Slices', type: 'number' },
+    ],
+    rows: [
+        { c: [
+            { v: 'Mushrooms' },
+            { v: 3 },
+        ] },
+        { c: [
+            { v: 'Olives' },
+            { v: 31 },
+        ] },
+    ] };
+
+    ctrl.myChartObject.options = {
+        title: 'How Much Pizza I Ate Last Night',
     };
+
+    // The race results data formatting and graphing
+    // ctrl.data = [];
+    // for (let i = 0; i < ctrl.results.length; i++) {
+    //     const newTime = ctrl.results[i].time;
+    //     const formattedTime = moment().startOf('day').seconds(newTime).format('H:mm:ss');
+    //     ctrl.data.push(formattedTime);
+    // }
+
+    // ctrl.labels = [];
+    // for (let i = 0; i < ctrl.results.length; i++) {
+    //     ctrl.labels.push(ctrl.results[i].id);
+    // }
+
+    // ctrl.datasetOverride = [{ yAxisID: 'y-axis-1' }];
+
+    // ctrl.options = {
+    //     scales: {
+    //         yAxes: [
+    //             {
+    //                 id: 'y-axis-1',
+    //                 type: 'linear',
+    //                 display: true,
+    //                 position: 'left',
+    //             },
+    //         ],
+    //     },
+    // };
 
     // ctrl.series = ['Series A', 'Series B'];
 
