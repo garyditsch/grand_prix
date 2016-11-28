@@ -28,7 +28,7 @@ function RaceResultsController(resultsEditService, moment) {
     };
 
     // The race results data formatting and graphing
-    // ctrl.data = [];
+    // ctrl.myChartObject.data = [];
     // for (let i = 0; i < ctrl.results.length; i++) {
     //     const newTime = ctrl.results[i].time;
     //     const formattedTime = moment().startOf('day').seconds(newTime).format('H:mm:ss');
