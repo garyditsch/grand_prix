@@ -57,6 +57,23 @@ function RaceResultsController(resultsEditService, moment) {
 
     // ctrl.series = ['Series A', 'Series B'];
 
+    // Change result time data from seconds to H:mm:ss, then add to results data list
+    // ctrl.standardTime = {};
+    ctrl.getNewTime = function getNewTime() {
+        for (let i = 0; i < ctrl.results.length; i++) {
+            const newTime = ctrl.results[i].time;
+            console.log(newTime);
+            const formattedTime = moment().startOf('day').seconds(newTime).format('H:mm:ss');
+            console.log(formattedTime);
+            ctrl.results[i].updatedTime = formattedTime;
+            // console.log(ctrl.updatedTime);
+        }
+    };
+    ctrl.getNewTime();
+
+    // console.log(ctrl.results);
+    // ctrl.resultsEdited = R.merge({}, ctrl.results, ctrl.standardTime);
+
     // This function allows user to show / hide results chart
     ctrl.showChart = function showChart() {
         ctrl.viewChart = !ctrl.viewChart;
@@ -67,7 +84,7 @@ function RaceResultsController(resultsEditService, moment) {
         runner.claim = true;
         runner.user = ctrl.me.id;
         resultsEditService.resultsEdit.update(runner).$promise.then((data) => {
-            console.log(data);
+            // console.log(data);
             runner = data;
         });
     };
@@ -77,7 +94,7 @@ function RaceResultsController(resultsEditService, moment) {
         runner.claim = false;
         runner.user = null;
         resultsEditService.resultsEdit.update(runner).$promise.then((data) => {
-            console.log(data);
+            // console.log(data);
             runner = data;
         });
     };

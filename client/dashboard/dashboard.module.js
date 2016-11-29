@@ -1,12 +1,16 @@
 import angular from 'angular';
 import 'angular-resource';
+import 'angular-moment';
 
 import dashboardComponent from './dashboard.components';
 import resultsAPIService from '../results/results-api.service';
 import resultsEditService from '../results/results-edit.service';
 import userResultsAPIService from '../results/user-results.service';
 
-const DashboardModule = angular.module('dashboard', ['ngResource'])
+const DashboardModule = angular.module('dashboard', [
+    'ngResource',
+    'angularMoment',
+])
     .config(($resourceProvider) => {
         $resourceProvider.defaults.stripTrailingSlashes = false;
     })

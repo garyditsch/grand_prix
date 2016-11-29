@@ -57,7 +57,7 @@
               <tbody>
                 <tr ng-repeat="runner in raceResultsCtrl.results | orderBy : 'time' | filter : raceResultsCtrl.runner_search" ng-class="{ success: runner.claim}">
                   <td> {{runner.firstname}} {{runner.lastname}}</td>
-                  <td> {{runner.time}}</td>
+                  <td> {{runner.updatedTime}}</td>
                   <td> {{runner.bib}}</td>
                   <td> 
                     <a href=""><i class="material-icons" ng-click="raceResultsCtrl.claimRaceResult(runner)" ng-show="!runner.claim">check_box_outline_blank</i></a>
