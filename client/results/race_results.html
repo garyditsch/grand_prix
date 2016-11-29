@@ -23,12 +23,10 @@
     <div class="row" ng-show="raceResultsCtrl.viewChart">
       <div class="col s12">
       <div class="card-panel white">
-      <!-- <img src="/static/images/raceresults-lbx.png" width="700" height="400"> -->
+      <img src="/static/images/data-soon.jpg">
         <!-- <canvas id="resultsBarChart" class="chart chart-bar" chart-data="raceResultsCtrl.data" chart-labels="raceResultsCtrl.labels" chart-series="raceResultsCtrl.series" chart-options="raceResultsCtrl.options">
         </canvas> -->
-      <div google-chart chart="raceResultsCtrl.myChartObject" style="height:300px; width:100%;"></div>
-
-
+      <!-- <div google-chart chart="raceResultsCtrl.myChartObject" style="height:300px; width:100%;"></div> -->
         </div>
       </div>
     </div>
@@ -39,6 +37,16 @@
             <div class="card-panel white">
                 <h6>Search for results..</h6>
                 <input ng-model="raceResultsCtrl.runner_search"></input>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" ng-show='!raceResultsCtrl.me.id'>
+        <div class="col s12">
+            <div class="card-panel teal">
+              <span class="white-text">
+                <h6>Log In to claim your results and create a results dashboard!</h6>
+              </span>
             </div>
         </div>
     </div>
@@ -59,8 +67,9 @@
                   <td> {{runner.firstname}} {{runner.lastname}}</td>
                   <td> {{runner.updatedTime}}</td>
                   <td> {{runner.bib}}</td>
-                  <td> 
+                  <td><div ng-show='raceResultsCtrl.me.id'>
                     <a href=""><i class="material-icons" ng-click="raceResultsCtrl.claimRaceResult(runner)" ng-show="!runner.claim">check_box_outline_blank</i></a>
+                    </div>
                   </td>
                   <td>
                     <a href=""><i class="material-icons" ng-click="raceResultsCtrl.unclaimRaceResult(runner)" ng-show="runner.claim">check_box</i></a>

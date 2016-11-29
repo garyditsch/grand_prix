@@ -62,11 +62,8 @@ function RaceResultsController(resultsEditService, moment) {
     ctrl.getNewTime = function getNewTime() {
         for (let i = 0; i < ctrl.results.length; i++) {
             const newTime = ctrl.results[i].time;
-            console.log(newTime);
             const formattedTime = moment().startOf('day').seconds(newTime).format('H:mm:ss');
-            console.log(formattedTime);
             ctrl.results[i].updatedTime = formattedTime;
-            // console.log(ctrl.updatedTime);
         }
     };
     ctrl.getNewTime();
@@ -84,7 +81,6 @@ function RaceResultsController(resultsEditService, moment) {
         runner.claim = true;
         runner.user = ctrl.me.id;
         resultsEditService.resultsEdit.update(runner).$promise.then((data) => {
-            // console.log(data);
             runner = data;
         });
     };
@@ -94,7 +90,6 @@ function RaceResultsController(resultsEditService, moment) {
         runner.claim = false;
         runner.user = null;
         resultsEditService.resultsEdit.update(runner).$promise.then((data) => {
-            // console.log(data);
             runner = data;
         });
     };
