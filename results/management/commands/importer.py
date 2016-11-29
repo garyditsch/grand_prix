@@ -23,4 +23,4 @@ class Command(NoArgsCommand):
             print(row['time'])
             print(race_id)
             Result.objects.create(firstname=row['First Name'], lastname=row['Last Name'], bib=row['BIB'], 
-                race=race_id, time=seconds)
+                race=race_id, time=seconds, gender=row['Gender'], age=row['Age'])
