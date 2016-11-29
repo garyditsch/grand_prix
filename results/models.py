@@ -6,10 +6,10 @@ from race.models import Race
 
 class Result(models.Model):
     race = models.ForeignKey(Race)
-    firstname = models.CharField(max_length=50, blank=True)
-    lastname = models.CharField(max_length=50, blank=True)
+    firstname = models.CharField(max_length=50, blank=True, null=True)
+    lastname = models.CharField(max_length=50, blank=True, null=True)
     age = models.IntegerField(blank=True, null=True)
-    gender = models.CharField(max_length=2, blank=True)
+    gender = models.CharField(max_length=2, blank=True, null=True)
     time = models.IntegerField()
     bib = models.IntegerField()
     claim = models.BooleanField(default=False)

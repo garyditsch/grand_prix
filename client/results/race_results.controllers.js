@@ -58,7 +58,6 @@ function RaceResultsController(resultsEditService, moment) {
     // ctrl.series = ['Series A', 'Series B'];
 
     // Change result time data from seconds to H:mm:ss, then add to results data list
-    // ctrl.standardTime = {};
     ctrl.getNewTime = function getNewTime() {
         for (let i = 0; i < ctrl.results.length; i++) {
             const newTime = ctrl.results[i].time;

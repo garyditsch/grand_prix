@@ -9,7 +9,6 @@ class Command(NoArgsCommand):
     file = input("What file do you want to import: ")
     race_entered_id = input("What is the race id: ")
 
-
     def handle_noargs(self, **options):
         resultFile = open(self.file)
         resultReader = csv.DictReader(resultFile)
