@@ -5,6 +5,7 @@ import angularCookies from 'angular-cookies';
 import angularMaterialize from 'angular-materialize';
 import chart from 'angular-chart.js';
 import angularMoment from 'angular-moment';
+// import ramda from 'ramda';
 import appComponent from './app.component';
 import PageModule from '../results/page.module';
 import CheckinModule from '../checkin/checkin.module';
@@ -19,6 +20,7 @@ const AppModule = angular.module('app', [
     angularMaterialize,
     chart,
     angularMoment,
+    // ramda,
     // googlechart,
 ])
     .component('app', appComponent)

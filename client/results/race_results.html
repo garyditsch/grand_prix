@@ -5,17 +5,27 @@
 
 <!-- Race page race details and search -->
       <div class="row">
-        <div class="col m8">
-          <div class="card-panel teal">
+        <div class="col m12">
+          <div class="card-panel teal right-align">
             <span class="white-text">
               <h5> {{raceResultsCtrl.races.name}}</h5>
               Date: {{raceResultsCtrl.races.date | date:MM/dd/yyy}}  |  Distance: {{raceResultsCtrl.races.distance}} miles
             </span>
           </div>
         </div>
-        <div class="col m4">
-            <h5>View Results Chart</h5>
+      </div>
+      <div class="row">
+        <!-- <div class="col m6">
+          <div class="card-panel">
             <a class="btn-floating btn-large waves-effect waves-light teal" ng-click="raceResultsCtrl.showChart()"><i class="material-icons">add</i></a>
+            View Results Chart
+          </div>
+        </div> -->
+        <div class="col m6">
+          <div class="card-panel">
+            <a class="btn-floating btn-large waves-effect waves-light teal" ng-click="raceResultsCtrl.showChart()"><i class="material-icons">add</i></a>
+            View Results Summary
+          </div>
         </div>
       </div>
 <!-- End race page race details -->
@@ -23,10 +33,31 @@
     <div class="row" ng-show="raceResultsCtrl.viewChart">
       <div class="col s12">
       <div class="card-panel white">
+        <div>
+          <table class="bordered">
+            <thead>
+              <tr>
+                <th>Metric:</th>
+                <th>Result:</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Number of Finishers:</td>
+                <td>{{ raceResultsCtrl.finishers }}</td>
+              </tr>
+              <tr>
+                <td>Average Finish Time:</td>
+                <td>{{ raceResultsCtrl.formattedMean }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      <h4>Charts</h4>
       <img src="/static/images/data-soon.jpg">
-        <!-- <canvas id="resultsBarChart" class="chart chart-bar" chart-data="raceResultsCtrl.data" chart-labels="raceResultsCtrl.labels" chart-series="raceResultsCtrl.series" chart-options="raceResultsCtrl.options">
-        </canvas> -->
-      <!-- <div google-chart chart="raceResultsCtrl.myChartObject" style="height:300px; width:100%;"></div> -->
+        
+      <!-- <div google-chart chart="raceResultsCtrl.Chart" style="height:300px; width:100%;"></div> -->
         </div>
       </div>
     </div>

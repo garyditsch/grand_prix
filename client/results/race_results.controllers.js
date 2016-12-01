@@ -1,61 +1,40 @@
+import R from 'ramda';
+
 function RaceResultsController(resultsEditService, moment) {
     const ctrl = this;
     ctrl.viewChart = false;
 
     // google chart example
 
-    ctrl.myChartObject = {};
+    const myChartObject = {};
 
-    ctrl.myChartObject.type = 'ColumnChart';
+    myChartObject.type = 'ColumnChart';
 
-    ctrl.myChartObject.data = { cols: [
-        { id: 't', label: 'Topping', type: 'string' },
-        { id: 's', label: 'Slices', type: 'number' },
-    ],
-    rows: [
-        { c: [
-            { v: 'Mushrooms' },
-            { v: 3 },
-        ] },
-        { c: [
-            { v: 'Olives' },
-            { v: 31 },
-        ] },
-    ] };
+    // myChartObject.data = google.visualization.arrayToDataTable([
 
-    ctrl.myChartObject.options = {
+
+    // ]);
+
+    // myChartObject.data = { cols: [
+    //     { id: 'r', label: 'Runner', type: 'string' },
+    //     { id: 't', label: 'Time', type: 'string' },
+    // ],
+    // rows: [
+    //     { c: [
+    //         { v: 'Mushrooms' },
+    //         { v: 3 },
+    //     ] },
+    //     { c: [
+    //         { v: 'Olives' },
+    //         { v: 31 },
+    //     ] },
+    // ] };
+
+    myChartObject.options = {
         title: 'How Much Pizza I Ate Last Night',
     };
 
-    // The race results data formatting and graphing
-    // ctrl.myChartObject.data = [];
-    // for (let i = 0; i < ctrl.results.length; i++) {
-    //     const newTime = ctrl.results[i].time;
-    //     const formattedTime = moment().startOf('day').seconds(newTime).format('H:mm:ss');
-    //     ctrl.data.push(formattedTime);
-    // }
-
-    // ctrl.labels = [];
-    // for (let i = 0; i < ctrl.results.length; i++) {
-    //     ctrl.labels.push(ctrl.results[i].id);
-    // }
-
-    // ctrl.datasetOverride = [{ yAxisID: 'y-axis-1' }];
-
-    // ctrl.options = {
-    //     scales: {
-    //         yAxes: [
-    //             {
-    //                 id: 'y-axis-1',
-    //                 type: 'linear',
-    //                 display: true,
-    //                 position: 'left',
-    //             },
-    //         ],
-    //     },
-    // };
-
-    // ctrl.series = ['Series A', 'Series B'];
+    ctrl.Chart = myChartObject;
 
     // Change result time data from seconds to H:mm:ss, then add to results data list
     ctrl.getNewTime = function getNewTime() {
@@ -67,8 +46,16 @@ function RaceResultsController(resultsEditService, moment) {
     };
     ctrl.getNewTime();
 
-    // console.log(ctrl.results);
-    // ctrl.resultsEdited = R.merge({}, ctrl.results, ctrl.standardTime);
+    ctrl.getAnalytics = function getAnalytics() {
+        const times = [];
+        for (let i = 0; i < ctrl.results.length; i++) {
+            times.push(ctrl.results[i].time);
+        }
+        ctrl.finishers = ctrl.results.length;
+        const mean = R.mean(times);
+        ctrl.formattedMean = moment().startOf('day').seconds(mean).format('H:mm:ss');
+    };
+    ctrl.getAnalytics();
 
     // This function allows user to show / hide results chart
     ctrl.showChart = function showChart() {
