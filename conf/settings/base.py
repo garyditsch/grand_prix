@@ -87,7 +87,7 @@ import dj_database_url
 DATABASES['default'] = dj_database_url.config()
 
 REST_FRAMEWORK = {
-    'PAGE_SIZE': 2500,
+    'PAGE_SIZE': 300,
 }
 
 
