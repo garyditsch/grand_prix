@@ -11,7 +11,7 @@ class Result(models.Model):
     age = models.IntegerField(blank=True, null=True)
     gender = models.CharField(max_length=2, blank=True, null=True)
     time = models.IntegerField()
-    bib = models.IntegerField()
+    bib = models.IntegerField(blank=True, null=True)
     claim = models.BooleanField(default=False)
     user = models.ForeignKey(User, blank=True, null=True)
     

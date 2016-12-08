@@ -87,7 +87,8 @@ import dj_database_url
 DATABASES['default'] = dj_database_url.config()
 
 REST_FRAMEWORK = {
-    'PAGE_SIZE': 3000,
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 2500,
 }
 
 

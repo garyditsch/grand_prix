@@ -21,5 +21,6 @@ class Command(NoArgsCommand):
             print(seconds)  
             print(row['time'])
             print(race_id)
-            Result.objects.create(firstname=row['First Name'], lastname=row['Last Name'], bib=row['BIB'], 
+            Result.objects.create(firstname=row['First Name'], lastname=row['Last Name'], 
                 race=race_id, time=seconds, gender=row['Gender'], age=row['Age'])
+                # Removed: bib=row['BIB'],  -- to import Berea
