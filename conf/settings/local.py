@@ -14,5 +14,5 @@ DATABASES = {
     }
 }
 
-ALLOWED_HOSTS = ['*']
-DEBUG = False
+# ALLOWED_HOSTS = ['*']
+DEBUG = True

@@ -8,7 +8,7 @@ from accounts.views import CurrentUserDetails
 
 router = routers.DefaultRouter()
 router.register(r'race', RaceViewSet)
-router.register(r'results', ResultsViewSet, base_name='results')
+router.register(r'results', ResultsViewSet)
 router.register(r'user-results', UserResultsList, base_name='user-results')
 router.register(r'checkins', CheckinViewSet)
 
