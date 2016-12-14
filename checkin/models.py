@@ -15,4 +15,4 @@ class Checkin(models.Model):
     checkin_date = models.DateTimeField(default=datetime.now)
 
     def __str__(self):
-        return self.email
+        return self.checkin_bib
