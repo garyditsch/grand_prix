@@ -14,5 +14,5 @@ class Checkin(models.Model):
     lastname = models.CharField(max_length=50, blank=True, null=True)
     checkin_date = models.DateTimeField(default=datetime.now)
 
-    def __str__(self):
-        return self.checkin_bib
+    # def __str__(self):
+    #     return self.lastname
