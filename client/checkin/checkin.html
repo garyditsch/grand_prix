@@ -42,7 +42,7 @@
                     <td>Score</td>
                     <td>CheckIn Date</td>
                   </tr>
-                  <tr ng-repeat="runner in checkinCtrl.checkins | filter : checkinCtrl.runner_search">
+                  <tr ng-repeat="runner in checkinCtrl.checkins | orderBy : '-checkin_date' | filter : checkinCtrl.runner_search">
                     <td>{{checkinCtrl.getRaceName(runner.race)}}</td>
                     <td>{{runner.checkin_bib}}</td>
                     <td>{{runner.firstname}} {{runner.lastname}}</td>
