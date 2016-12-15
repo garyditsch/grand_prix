@@ -40,7 +40,7 @@
               <tbody>
                 <tr ng-repeat="runner in dashboardCtrl.userResults | orderBy : 'time' | filter : raceResultsCtrl.runner_search" ng-class="{ success: runner.claim}">
                   <td> {{runner.firstname}} {{runner.lastname}}</td>
-                  <td> {{runner.race}}
+                  <td> {{dashboardCtrl.getRaceName(runner.race)}}</td>
                   <td> {{runner.updatedTime}}</td>
                   <td> {{runner.bib}}</td>
                   <td> 

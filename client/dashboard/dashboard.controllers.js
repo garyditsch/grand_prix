@@ -32,6 +32,14 @@ function DashboardController(resultsEditService, moment) {
             runner = data;
         });
     };
+
+    ctrl.getRaceName = function getRaceName(raceid) {
+        for (let i = 0; i < ctrl.races.results.length; i += 1) {
+            if (raceid === ctrl.races.results[i].id) {
+                return ctrl.races.results[i].name;
+            }
+        }
+    };
 }
 
 export default DashboardController;
